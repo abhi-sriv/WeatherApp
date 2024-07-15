@@ -10,13 +10,13 @@ import UIKit
 import SwiftUI
 
 class SwiftUIController: UIViewController {
-  override func viewDidLoad() {
-    let swiftUIView = SwiftUIView()
-    let hosting = UIHostingController(rootView: swiftUIView)
-    addChild(hosting)
-    view.addSubview(hosting.view)
-    hosting.view.snp.updateConstraints { make in
-      make.edges.equalToSuperview()
+    override func viewDidLoad() {
+        let swiftUIView = SwiftUIView(viewModel: WeatherViewModel())
+        let hosting = UIHostingController(rootView: swiftUIView)
+        addChild(hosting)
+        view.addSubview(hosting.view)
+        hosting.view.snp.updateConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
-  }
 }
